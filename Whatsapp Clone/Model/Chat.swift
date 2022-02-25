@@ -6,17 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct Chat {
+    let profilePic: UIImage?
     let name: String
     let time: Date
     let lastMessage: String
-}
-
-typealias ChatData = (name: String, time: String, lastMessage: String)
-
-extension Chat {
-    var tableRepresentation: ChatData {
-        return (name, time.description, lastMessage)
-    }
+    let isGroup: Bool
 }

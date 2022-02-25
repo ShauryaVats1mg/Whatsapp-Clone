@@ -6,25 +6,43 @@
 //
 
 import Foundation
+import UIKit
 
 class DataManager {
     private var chats = [Chat]()
     
     init() {
         chats.append(Chat(
-            name: "Name 1", time: Date.distantPast, lastMessage: "Last 1"
+            profilePic: nil,
+            name: "Username 1",
+            time: Date.distantPast,
+            lastMessage: "This is the last message from the user named Name 1",
+            isGroup: false
         ))
         
         chats.append(Chat(
-            name: "Name 2", time: Date.distantPast, lastMessage: "Last 2"
+            profilePic: nil,
+            name: "Group 1",
+            time: Date.distantPast,
+            lastMessage: "",
+            isGroup: true
         ))
         
         chats.append(Chat(
-            name: "Name 3", time: Date.distantPast, lastMessage: "Last 3"
+            profilePic: nil,
+            name: "User 3",
+            time: Date.distantPast,
+            lastMessage: "This is the last message from the user named Name 3",
+            isGroup: false
         ))
         
         chats.append(Chat(
-            name: "Name 4", time: Date.distantPast, lastMessage: "Last 4"
+            profilePic: nil,
+            name: "User 4",
+            time: Date.distantPast,
+            lastMessage: "This is the last message",
+            isGroup: false
+
         ))
     }
     

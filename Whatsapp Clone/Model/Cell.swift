@@ -8,7 +8,8 @@
 import UIKit
 
 class Cell: UITableViewCell {
-  @IBOutlet weak var name: UILabel!
-  @IBOutlet weak var time: UILabel!
-  @IBOutlet weak var lastMessage: UILabel!
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var lastMessage: UILabel!
 }
