@@ -14,10 +14,12 @@ class ChatViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.backgroundColor = UIColor.green
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.backgroundColor = UIColor.white
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }

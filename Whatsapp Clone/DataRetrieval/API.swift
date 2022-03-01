@@ -7,7 +7,7 @@
 
 import UIKit
 
-class API {
+final class API {
     
     static let instance = API()
     private let dataManager = DataManager()

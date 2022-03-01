@@ -19,6 +19,8 @@
 		D9AE964227C79E2300451F98 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964127C79E2300451F98 /* Cell.swift */; };
 		D9AE964627C8D96E00451F98 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964527C8D96E00451F98 /* ChatViewController.swift */; };
 		D9AE964827C8EA7200451F98 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964727C8EA7200451F98 /* NavigationController.swift */; };
+		D9AE964A27CCB29700451F98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964927CCB29700451F98 /* SettingsViewController.swift */; };
+		D9AE964F27CDE26700451F98 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964E27CDE26700451F98 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		D9AE964127C79E2300451F98 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		D9AE964527C8D96E00451F98 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D9AE964727C8EA7200451F98 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		D9AE964927CCB29700451F98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D9AE964E27CDE26700451F98 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +72,9 @@
 		D9AE961D27C66B2500451F98 /* Whatsapp Clone */ = {
 			isa = PBXGroup;
 			children = (
-				D9AE963827C78BAC00451F98 /* Controller */,
-				D9AE963727C78BA500451F98 /* View */,
-				D9AE963627C78B9D00451F98 /* Model */,
+				D9AE964D27CCEC4F00451F98 /* DataRetrieval */,
+				D9AE964B27CCEB1000451F98 /* Chat */,
+				D9AE964C27CCEB1A00451F98 /* Settings */,
 				D9AE961E27C66B2500451F98 /* AppDelegate.swift */,
 				D9AE962027C66B2500451F98 /* SceneDelegate.swift */,
 				D9AE962427C66B2500451F98 /* Main.storyboard */,
@@ -85,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				D9AE963927C78C1400451F98 /* Chat.swift */,
-				D9AE964127C79E2300451F98 /* Cell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,9 +96,10 @@
 		D9AE963727C78BA500451F98 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9AE964127C79E2300451F98 /* Cell.swift */,
 				D9AE963427C68D4300451F98 /* ViewController.swift */,
 				D9AE964527C8D96E00451F98 /* ChatViewController.swift */,
-				D9AE964727C8EA7200451F98 /* NavigationController.swift */,
+				D9AE964E27CDE26700451F98 /* UIImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,10 +107,36 @@
 		D9AE963827C78BAC00451F98 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D9AE964727C8EA7200451F98 /* NavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D9AE964B27CCEB1000451F98 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D9AE963827C78BAC00451F98 /* Controller */,
+				D9AE963727C78BA500451F98 /* View */,
+				D9AE963627C78B9D00451F98 /* Model */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D9AE964C27CCEB1A00451F98 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D9AE964927CCB29700451F98 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D9AE964D27CCEC4F00451F98 /* DataRetrieval */ = {
+			isa = PBXGroup;
+			children = (
 				D9AE963B27C790BB00451F98 /* API.swift */,
 				D9AE963D27C793DC00451F98 /* DataManager.swift */,
 			);
-			path = Controller;
+			path = DataRetrieval;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +213,10 @@
 				D9AE963527C68D4300451F98 /* ViewController.swift in Sources */,
 				D9AE964627C8D96E00451F98 /* ChatViewController.swift in Sources */,
 				D9AE963E27C793DC00451F98 /* DataManager.swift in Sources */,
+				D9AE964A27CCB29700451F98 /* SettingsViewController.swift in Sources */,
 				D9AE964227C79E2300451F98 /* Cell.swift in Sources */,
 				D9AE964827C8EA7200451F98 /* NavigationController.swift in Sources */,
+				D9AE964F27CDE26700451F98 /* UIImageView.swift in Sources */,
 				D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */,
 				D9AE963A27C78C1400451F98 /* Chat.swift in Sources */,
 				D9AE962127C66B2500451F98 /* SceneDelegate.swift in Sources */,
