@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-struct Chat {
-    let profilePic: UIImage?
-    let name: String
-    let time: Date
-    let lastMessage: String
-    let isGroup: Bool
+struct Chat: Codable {
+    var profilePic: URL?
+    var name: String
+    var time: String
+    var lastMessage: String
+    var isGroup: Bool
 }

@@ -8,42 +8,44 @@
 import Foundation
 import UIKit
 
+private enum Constants {
+    static let chatFilename = "ChatPerson"
+}
+
 class DataManager {
     private var chats = [Chat]()
     
     init() {
-        chats.append(Chat(
-            profilePic: nil,
-            name: "Username 1",
-            time: Date.distantPast,
-            lastMessage: "This is the last message from the user named Name 1",
-            isGroup: false
-        ))
+        if let localData = self.readLocalFile() {
+            self.parse(jsonData: localData)
+        }
+    }
+    
+    private func readLocalFile() -> Data? {
+        guard let bundlePath = Bundle.main.url(forResource: Constants.chatFilename, withExtension: "json") else{
+            return nil
+        }
+        do {
+            let jsonData = try Data(contentsOf: bundlePath)
+            return jsonData
+        }
+         catch {
+            print(error)
+        }
         
-        chats.append(Chat(
-            profilePic: nil,
-            name: "Group 1",
-            time: Date.distantPast,
-            lastMessage: "",
-            isGroup: true
-        ))
-        
-        chats.append(Chat(
-            profilePic: nil,
-            name: "User 3",
-            time: Date.distantPast,
-            lastMessage: "This is the last message from the user named Name 3",
-            isGroup: false
-        ))
-        
-        chats.append(Chat(
-            profilePic: nil,
-            name: "User 4",
-            time: Date.distantPast,
-            lastMessage: "This is the last message",
-            isGroup: false
-
-        ))
+        return nil
+    }
+    
+    private func parse(jsonData: Data) {
+        do {
+            let decodedData = try JSONDecoder().decode([Chat].self, from: jsonData)
+            
+            chats = decodedData
+        }
+        catch let error {
+            print(error)
+            print("decode error")
+        }
     }
     
     func getChats() -> [Chat] {

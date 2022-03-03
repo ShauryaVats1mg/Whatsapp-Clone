@@ -60,23 +60,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="jrz-dR-oQC">
-                                <rect key="frame" x="8" y="132" width="398" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qgd-sv-EOh">
-                                <rect key="frame" x="8" y="191" width="398" height="614"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="89" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qgd-sv-EOh">
+                                <rect key="frame" x="8" y="96" width="398" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchBarCell" rowHeight="80" id="n7K-tH-NHi" customClass="SearchBarTableViewCell" customModule="Whatsapp_Clone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="398" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n7K-tH-NHi" id="v70-Jb-Gfn">
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <searchBar opaque="NO" clipsSubviews="YES" contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="jrz-dR-oQC">
+                                                    <rect key="frame" x="8" y="8" width="382" height="64"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </searchBar>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jrz-dR-oQC" firstAttribute="leading" secondItem="v70-Jb-Gfn" secondAttribute="leading" constant="8" id="7fW-OT-dab"/>
+                                                <constraint firstAttribute="trailing" secondItem="jrz-dR-oQC" secondAttribute="trailing" constant="8" id="EAf-kP-XEv"/>
+                                                <constraint firstItem="jrz-dR-oQC" firstAttribute="top" secondItem="v70-Jb-Gfn" secondAttribute="top" constant="8" id="YnS-i4-3FD"/>
+                                                <constraint firstAttribute="bottom" secondItem="jrz-dR-oQC" secondAttribute="bottom" constant="8" id="tq5-wC-tSn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="searchBar" destination="jrz-dR-oQC" id="dws-Yy-wnA"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGroupCell" rowHeight="40" id="rwz-s5-hm3" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="398" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rwz-s5-hm3" id="7cO-qf-OLi">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ya-sI-mzv">
-                                                    <rect key="frame" x="20" y="11" width="123.5" height="18"/>
+                                                    <rect key="frame" x="28" y="19" width="123.5" height="2"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Broadcast Lists">
                                                         <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
@@ -91,18 +112,19 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5Ya-sI-mzv" firstAttribute="leading" secondItem="7cO-qf-OLi" secondAttribute="leadingMargin" id="1h7-qM-PLp"/>
+                                                <constraint firstItem="5Ya-sI-mzv" firstAttribute="leading" secondItem="7cO-qf-OLi" secondAttribute="leadingMargin" constant="8" id="1h7-qM-PLp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="7uO-87-4jM" secondAttribute="bottom" constant="8" id="Sev-Op-bHX"/>
-                                                <constraint firstItem="5Ya-sI-mzv" firstAttribute="top" secondItem="7cO-qf-OLi" secondAttribute="topMargin" id="Wku-ym-AVu"/>
+                                                <constraint firstItem="5Ya-sI-mzv" firstAttribute="top" secondItem="7cO-qf-OLi" secondAttribute="topMargin" constant="8" id="Wku-ym-AVu"/>
                                                 <constraint firstItem="7uO-87-4jM" firstAttribute="top" secondItem="7cO-qf-OLi" secondAttribute="topMargin" constant="8" id="aTf-rr-7Pr"/>
                                                 <constraint firstItem="7uO-87-4jM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Ya-sI-mzv" secondAttribute="trailing" constant="8" id="aWJ-aU-1vL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="5Ya-sI-mzv" secondAttribute="bottom" id="j3h-Kd-pbF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5Ya-sI-mzv" secondAttribute="bottom" constant="8" id="j3h-Kd-pbF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7uO-87-4jM" secondAttribute="trailing" constant="8" id="yOM-Qa-ARt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArchiveCell" rowHeight="40" id="axO-iV-lHg" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84.5" width="398" height="40"/>
+                                        <rect key="frame" x="0.0" y="164.5" width="398" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="axO-iV-lHg" id="jhM-tD-bZf">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
@@ -116,17 +138,17 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZi-JG-btM">
-                                                    <rect key="frame" x="96" y="8" width="294" height="24"/>
+                                                    <rect key="frame" x="72" y="8" width="73" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="SZi-JG-btM" firstAttribute="leading" secondItem="yyI-vy-LqE" secondAttribute="trailing" constant="32" id="8we-pK-XMH"/>
+                                                <constraint firstItem="SZi-JG-btM" firstAttribute="leading" secondItem="yyI-vy-LqE" secondAttribute="trailing" constant="8" id="8we-pK-XMH"/>
                                                 <constraint firstAttribute="bottom" secondItem="yyI-vy-LqE" secondAttribute="bottom" constant="8" id="Fnp-zV-q7H"/>
                                                 <constraint firstItem="yyI-vy-LqE" firstAttribute="top" secondItem="jhM-tD-bZf" secondAttribute="top" constant="8" id="GYD-3a-iSY"/>
-                                                <constraint firstAttribute="trailing" secondItem="SZi-JG-btM" secondAttribute="trailing" constant="8" id="RCc-Iy-POe"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SZi-JG-btM" secondAttribute="trailing" constant="8" id="RCc-Iy-POe"/>
                                                 <constraint firstItem="SZi-JG-btM" firstAttribute="top" secondItem="jhM-tD-bZf" secondAttribute="top" constant="8" id="baK-We-2ft"/>
                                                 <constraint firstAttribute="bottom" secondItem="SZi-JG-btM" secondAttribute="bottom" constant="8" id="tuk-Lx-alU"/>
                                                 <constraint firstItem="yyI-vy-LqE" firstAttribute="leading" secondItem="jhM-tD-bZf" secondAttribute="leading" constant="24" id="xUQ-0R-fgM"/>
@@ -134,7 +156,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="mcr-cC-Nr7" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124.5" width="398" height="80"/>
+                                        <rect key="frame" x="0.0" y="204.5" width="398" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mcr-cC-Nr7" id="c4U-gy-2Ex">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="80"/>
@@ -199,11 +221,8 @@
                         <constraints>
                             <constraint firstItem="muR-JQ-SEa" firstAttribute="bottom" secondItem="qgd-sv-EOh" secondAttribute="bottom" constant="8" id="Bpd-7d-aW5"/>
                             <constraint firstItem="muR-JQ-SEa" firstAttribute="trailing" secondItem="qgd-sv-EOh" secondAttribute="trailing" constant="8" id="ERp-Ef-8HH"/>
-                            <constraint firstItem="qgd-sv-EOh" firstAttribute="top" secondItem="jrz-dR-oQC" secondAttribute="bottom" constant="8" id="ICN-dI-rTQ"/>
+                            <constraint firstItem="qgd-sv-EOh" firstAttribute="top" secondItem="muR-JQ-SEa" secondAttribute="top" constant="8" id="J5P-Ao-aFB"/>
                             <constraint firstItem="qgd-sv-EOh" firstAttribute="leading" secondItem="muR-JQ-SEa" secondAttribute="leading" constant="8" id="NTf-hM-6TC"/>
-                            <constraint firstItem="muR-JQ-SEa" firstAttribute="trailing" secondItem="jrz-dR-oQC" secondAttribute="trailing" constant="8" id="X3T-Tg-Auc"/>
-                            <constraint firstItem="jrz-dR-oQC" firstAttribute="leading" secondItem="muR-JQ-SEa" secondAttribute="leading" constant="8" id="tSe-ZR-XJO"/>
-                            <constraint firstItem="muR-JQ-SEa" firstAttribute="top" secondItem="jrz-dR-oQC" secondAttribute="top" constant="8" id="wG8-m4-Lxe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" id="KT0-ZI-Mkf">
