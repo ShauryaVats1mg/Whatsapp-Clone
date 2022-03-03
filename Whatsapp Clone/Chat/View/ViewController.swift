@@ -84,13 +84,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         //The first two cells are different
         let row = indexPath.row - CellConstants.cells.count
         
-        //cell.profilePic.image = allChats[row].profilePic == nil ? ((allChats[row].isGroup ?? false) ? ChatDefaults.groupProfilePic : ChatDefaults.userProfilePic) : allChats[row].profilePic
-        cell.profilePic.image = ((allChats[row].isGroup ?? false) ? ChatDefaults.groupProfilePic : ChatDefaults.userProfilePic)
+        //Applying the data of the user to the chat
+        cell.profilePic.image = (allChats[row].isGroup ? ChatDefaults.groupProfilePic : ChatDefaults.userProfilePic)
         cell.profilePic.makeRounded()
         cell.name!.text = allChats[row].name
         cell.time!.text = allChats[row].time
         cell.lastMessage!.text = allChats[row].lastMessage
-    
+        
+        //Downloading the image
+        if let url = allChats[row].profilePic {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        cell.profilePic.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
         return cell
     }
     
