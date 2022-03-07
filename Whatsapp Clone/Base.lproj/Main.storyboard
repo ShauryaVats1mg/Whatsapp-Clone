@@ -231,6 +231,7 @@
                     <navigationItem key="navigationItem" id="IGK-Bz-TIA"/>
                     <connections>
                         <outlet property="tableView" destination="qgd-sv-EOh" id="Toq-Aw-8di"/>
+                        <segue destination="hF6-F7-46F" kind="show" id="S9W-vG-Zm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="067-iR-OFh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -280,6 +281,7 @@
                         <viewLayoutGuide key="safeArea" id="k8z-1b-bx2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H04-7m-tiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

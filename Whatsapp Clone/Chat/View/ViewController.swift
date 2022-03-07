@@ -122,6 +122,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
 
         navigationController?.pushViewController(vc, animated: true)
-        vc.title = allChats[indexPath.row - CellConstants.cells.count].name
+        //vc.title = allChats[indexPath.row - CellConstants.cells.count].name
+        vc.setup(tableView.cellForRow(at: indexPath) as? Cell)
     }
 }
