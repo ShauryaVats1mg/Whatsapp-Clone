@@ -20,7 +20,7 @@
 		D9AE964627C8D96E00451F98 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964527C8D96E00451F98 /* ChatViewController.swift */; };
 		D9AE964827C8EA7200451F98 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964727C8EA7200451F98 /* NavigationController.swift */; };
 		D9AE964A27CCB29700451F98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964927CCB29700451F98 /* SettingsViewController.swift */; };
-		D9AE964F27CDE26700451F98 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964E27CDE26700451F98 /* UIImageView.swift */; };
+		D9AE964F27CDE26700451F98 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE964E27CDE26700451F98 /* UIView.swift */; };
 		D9AE965127CE072700451F98 /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE965027CE072600451F98 /* SearchBarTableViewCell.swift */; };
 		D9AE965327CF616A00451F98 /* ChatPerson.json in Resources */ = {isa = PBXBuildFile; fileRef = D9AE965227CF616A00451F98 /* ChatPerson.json */; };
 /* End PBXBuildFile section */
@@ -41,7 +41,7 @@
 		D9AE964527C8D96E00451F98 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D9AE964727C8EA7200451F98 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D9AE964927CCB29700451F98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		D9AE964E27CDE26700451F98 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		D9AE964E27CDE26700451F98 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D9AE965027CE072600451F98 /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarTableViewCell.swift; sourceTree = "<group>"; };
 		D9AE965227CF616A00451F98 /* ChatPerson.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatPerson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +105,7 @@
 				D9AE965027CE072600451F98 /* SearchBarTableViewCell.swift */,
 				D9AE963427C68D4300451F98 /* ViewController.swift */,
 				D9AE964527C8D96E00451F98 /* ChatViewController.swift */,
-				D9AE964E27CDE26700451F98 /* UIImageView.swift */,
+				D9AE964E27CDE26700451F98 /* UIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 				D9AE964A27CCB29700451F98 /* SettingsViewController.swift in Sources */,
 				D9AE964227C79E2300451F98 /* Cell.swift in Sources */,
 				D9AE964827C8EA7200451F98 /* NavigationController.swift in Sources */,
-				D9AE964F27CDE26700451F98 /* UIImageView.swift in Sources */,
+				D9AE964F27CDE26700451F98 /* UIView.swift in Sources */,
 				D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */,
 				D9AE963A27C78C1400451F98 /* Chat.swift in Sources */,
 				D9AE965127CE072700451F98 /* SearchBarTableViewCell.swift in Sources */,

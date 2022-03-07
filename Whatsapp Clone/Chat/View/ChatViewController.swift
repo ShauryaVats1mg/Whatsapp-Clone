@@ -9,14 +9,29 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
+    @IBOutlet weak var sendButton: UIButton?
+    @IBOutlet weak var messageFeild: UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        //Hide the tab bar
+        tabBarController?.tabBar.isHidden = true
+        
         //Initialise the navigation bar
         navigationController?.navigationBar.backgroundColor = UIColor.systemGreen
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+        //Initialise the bottom bar
+        if let sendButton = sendButton {
+            sendButton.makeRounded()
+        }
+        
+        if let messageFeild = messageFeild {
+            messageFeild.makeRounded()
+        }
     }
     
     func setup(_ chatDetails: Cell?) {
@@ -45,6 +60,9 @@ class ChatViewController: UIViewController {
         //Deinitialise the navigation bar
         navigationController?.navigationBar.backgroundColor = UIColor.systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Un hide the tab bar
+        tabBarController?.tabBar.isHidden = false
     }
 
 }

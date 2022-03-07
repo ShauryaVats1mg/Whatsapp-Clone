@@ -278,10 +278,50 @@
                     <view key="view" contentMode="scaleToFill" id="ohU-Vn-TOJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDr-Kx-wNj">
+                                <rect key="frame" x="8" y="741" width="398" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gec-Ud-e9A" userLabel="MessageInput">
+                                        <rect key="frame" x="8" y="8" width="326" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri0-zF-4Ii">
+                                        <rect key="frame" x="342" y="8" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ri0-zF-4Ii" secondAttribute="height" multiplier="1:1" id="B6h-Rr-oST"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="arrow.right" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstItem="Gec-Ud-e9A" firstAttribute="leading" secondItem="IDr-Kx-wNj" secondAttribute="leading" constant="8" id="U7z-UZ-11s"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gec-Ud-e9A" secondAttribute="bottom" constant="8" id="ad0-aZ-kwC"/>
+                                    <constraint firstItem="Gec-Ud-e9A" firstAttribute="top" secondItem="IDr-Kx-wNj" secondAttribute="top" constant="8" id="cCW-DK-zZO"/>
+                                    <constraint firstAttribute="trailing" secondItem="ri0-zF-4Ii" secondAttribute="trailing" constant="8" id="eWg-QM-M1F"/>
+                                    <constraint firstAttribute="height" constant="64" id="hJM-1P-F05"/>
+                                    <constraint firstItem="ri0-zF-4Ii" firstAttribute="top" secondItem="IDr-Kx-wNj" secondAttribute="top" constant="8" id="hwa-c6-iTH"/>
+                                    <constraint firstItem="ri0-zF-4Ii" firstAttribute="leading" secondItem="Gec-Ud-e9A" secondAttribute="trailing" constant="8" id="ln2-Lm-5QV"/>
+                                    <constraint firstAttribute="bottom" secondItem="ri0-zF-4Ii" secondAttribute="bottom" constant="8" id="ovJ-du-WDZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="k8z-1b-bx2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="IDr-Kx-wNj" secondAttribute="trailing" constant="8" id="ZTl-1A-qzW"/>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="IDr-Kx-wNj" secondAttribute="bottom" constant="8" id="epD-x7-tTP"/>
+                            <constraint firstItem="IDr-Kx-wNj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="k88-oh-RiM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>
+                    <connections>
+                        <outlet property="messageFeild" destination="Gec-Ud-e9A" id="IbP-9F-ZDv"/>
+                        <outlet property="sendButton" destination="ri0-zF-4Ii" id="ljP-Hy-7bc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H04-7m-tiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,10 +330,14 @@
     </scenes>
     <resources>
         <image name="archivebox" catalog="system" width="128" height="106"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
