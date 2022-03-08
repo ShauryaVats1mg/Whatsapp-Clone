@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     private var currentChatIndex = 0
-    private var allChats = [Chat]()
+    private var allChats = [UserDataStructure]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

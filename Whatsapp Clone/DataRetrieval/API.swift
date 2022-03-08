@@ -14,7 +14,7 @@ final class API {
     
     private init(){}
     
-    func getChats() -> [Chat] {
+    func getChats() -> [UserDataStructure] {
         return dataManager.getChats()
     }
 }

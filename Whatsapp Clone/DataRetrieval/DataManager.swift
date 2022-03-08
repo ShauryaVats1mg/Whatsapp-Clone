@@ -13,7 +13,7 @@ private enum Constants {
 }
 
 class DataManager {
-    private var chats = [Chat]()
+    private var chats = [UserDataStructure]()
     
     init() {
         if let localData = self.readLocalFile() {
@@ -38,7 +38,7 @@ class DataManager {
     
     private func parse(jsonData: Data) {
         do {
-            let decodedData = try JSONDecoder().decode([Chat].self, from: jsonData)
+            let decodedData = try JSONDecoder().decode([UserDataStructure].self, from: jsonData)
             
             chats = decodedData
         }
@@ -48,7 +48,7 @@ class DataManager {
         }
     }
     
-    func getChats() -> [Chat] {
+    func getChats() -> [UserDataStructure] {
         return chats
     }
 }

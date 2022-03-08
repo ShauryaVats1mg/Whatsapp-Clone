@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Chat: Codable {
+struct UserDataStructure: Codable {
     var profilePic: URL?
     var name: String
     var time: String
