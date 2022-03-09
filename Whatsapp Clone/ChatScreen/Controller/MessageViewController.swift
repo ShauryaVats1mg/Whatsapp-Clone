@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+class MessageViewController: UIViewController {
 
     @IBOutlet weak var sendButton: UIButton?
     @IBOutlet weak var messageFeild: UITextField?
@@ -21,7 +21,7 @@ class ChatViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         
         //Initialise the navigation bar
-        navigationController?.navigationBar.backgroundColor = UIColor.systemGreen
+        navigationController?.navigationBar.backgroundColor = UIColor.systemGray6
         navigationController?.navigationBar.prefersLargeTitles = false
         
         //Initialise the bottom bar
@@ -34,7 +34,7 @@ class ChatViewController: UIViewController {
         }
     }
     
-    func setup(_ chatDetails: Cell?) {
+    func setup(_ chatDetails: DefaultCell?) {
         guard let _ = chatDetails else {
             return;
         }
@@ -43,7 +43,14 @@ class ChatViewController: UIViewController {
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
         
-        navigationItem.leftBarButtonItems = [backButton]
+        let profilePicButton = UIButton(type: .system)
+        profilePicButton.setBackgroundImage(chatDetails?.profilePic.image, for: .normal)
+        profilePicButton.imageView?.contentMode = .scaleAspectFit
+        profilePicButton.imageView?.makeRounded()
+        
+        navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton)]
+        
+        //navigationItem.leftBarButtonItems = [backButton]
         
         let videoButton = UIBarButtonItem(image: UIImage(systemName: "video"), style: .plain, target: nil, action: nil)
         
@@ -65,4 +72,18 @@ class ChatViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
 
+}
+
+// MARK: - Table View Extension
+
+extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }

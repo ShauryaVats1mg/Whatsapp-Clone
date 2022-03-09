@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class ChatViewController: UIViewController {
 
     private struct CellData {
         var cellIdentifier: String
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
 
 // MARK: - View Controller Extension
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allChats.count < 0 ? CellConstants.cells.count : allChats.count + CellConstants.cells.count
     }
@@ -72,11 +72,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if (indexPath.row < CellConstants.cells.count) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as! Cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as! DefaultCell
             return cell
         }
         
-        let cell: Cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cellIdentifier, for: indexPath) as! Cell
+        let cell: DefaultCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cellIdentifier, for: indexPath) as! DefaultCell
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -119,10 +119,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! MessageViewController
 
         navigationController?.pushViewController(vc, animated: true)
-        //vc.title = allChats[indexPath.row - CellConstants.cells.count].name
-        vc.setup(tableView.cellForRow(at: indexPath) as? Cell)
+        
+        vc.setup(tableView.cellForRow(at: indexPath) as? DefaultCell)
     }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZQt-AU-aQM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -55,7 +56,7 @@
         <!--Chats-->
         <scene sceneID="Ode-11-dK1">
             <objects>
-                <viewController id="2v1-ob-IwG" userLabel="Chats" customClass="ViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2v1-ob-IwG" userLabel="Chats" customClass="ChatViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YMG-3a-cGR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,7 +90,7 @@
                                             <outlet property="searchBar" destination="jrz-dR-oQC" id="dws-Yy-wnA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGroupCell" rowHeight="40" id="rwz-s5-hm3" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewGroupCell" rowHeight="40" id="rwz-s5-hm3" customClass="DefaultCell" customModule="Whatsapp_Clone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124.5" width="398" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rwz-s5-hm3" id="7cO-qf-OLi">
@@ -123,7 +124,7 @@
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArchiveCell" rowHeight="40" id="axO-iV-lHg" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArchiveCell" rowHeight="40" id="axO-iV-lHg" customClass="DefaultCell" customModule="Whatsapp_Clone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="164.5" width="398" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="axO-iV-lHg" id="jhM-tD-bZf">
@@ -155,7 +156,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="mcr-cC-Nr7" customClass="Cell" customModule="Whatsapp_Clone" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="mcr-cC-Nr7" customClass="DefaultCell" customModule="Whatsapp_Clone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="204.5" width="398" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mcr-cC-Nr7" id="c4U-gy-2Ex">
@@ -271,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="387" y="283"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Message View Controller-->
         <scene sceneID="KxU-NL-hEu">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="hF6-F7-46F" customClass="ChatViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="hF6-F7-46F" customClass="MessageViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohU-Vn-TOJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,13 +309,21 @@
                                     <constraint firstAttribute="bottom" secondItem="ri0-zF-4Ii" secondAttribute="bottom" constant="8" id="ovJ-du-WDZ"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj">
+                                <rect key="frame" x="8" y="148" width="398" height="585"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k8z-1b-bx2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Uly-6k-UAj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="CA6-BV-H3E"/>
+                            <constraint firstItem="Uly-6k-UAj" firstAttribute="top" secondItem="k8z-1b-bx2" secondAttribute="top" constant="8" id="PjW-aL-hJz"/>
+                            <constraint firstItem="IDr-Kx-wNj" firstAttribute="top" secondItem="Uly-6k-UAj" secondAttribute="bottom" constant="8" id="SnV-o2-Dse"/>
                             <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="IDr-Kx-wNj" secondAttribute="trailing" constant="8" id="ZTl-1A-qzW"/>
                             <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="IDr-Kx-wNj" secondAttribute="bottom" constant="8" id="epD-x7-tTP"/>
                             <constraint firstItem="IDr-Kx-wNj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="k88-oh-RiM"/>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="Uly-6k-UAj" secondAttribute="trailing" constant="8" id="vAV-rm-Fx8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>

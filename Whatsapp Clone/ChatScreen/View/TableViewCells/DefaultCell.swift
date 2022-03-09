@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Cell: UITableViewCell {
+class DefaultCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
