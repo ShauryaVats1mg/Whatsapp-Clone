@@ -12,6 +12,10 @@ class MessageViewController: UIViewController {
     @IBOutlet weak var sendButton: UIButton?
     @IBOutlet weak var messageFeild: UITextField?
     
+    @IBOutlet weak var tableView: UITableView?
+    
+    private var messages = [Message]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +36,12 @@ class MessageViewController: UIViewController {
         if let messageFeild = messageFeild {
             messageFeild.makeRounded()
         }
+        
+        //Initialising the table view
+        tableView?.delegate = self
+        tableView?.dataSource = self
+        
+        messages = API.instance.getMessages(at: 0)!
     }
     
     func setup(_ chatDetails: DefaultCell?) {
@@ -39,18 +49,29 @@ class MessageViewController: UIViewController {
             return;
         }
         
-        title = chatDetails?.name.text
+        //title = chatDetails?.name.text
         
-        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backButtonPressed))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
         
-        let profilePicButton = UIButton(type: .system)
+        /*let profilePicButton = UIButton(type: .custom)
         profilePicButton.setBackgroundImage(chatDetails?.profilePic.image, for: .normal)
         profilePicButton.imageView?.contentMode = .scaleAspectFit
         profilePicButton.imageView?.makeRounded()
         
         navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton)]
+        */
         
-        //navigationItem.leftBarButtonItems = [backButton]
+        let profilePicButton = UIButton(type: .custom)
+        let image = chatDetails?.profilePic
+        image?.backgroundColor = UIColor.lightGray
+        image?.tintColor = UIColor.systemBackground
+        profilePicButton.setBackgroundImage(image?.image?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
+        let nameButton = UILabel()
+        nameButton.text = chatDetails?.name.text
+        nameButton.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton), UIBarButtonItem(customView: nameButton)]
         
         let videoButton = UIBarButtonItem(image: UIImage(systemName: "video"), style: .plain, target: nil, action: nil)
         
@@ -77,13 +98,34 @@ class MessageViewController: UIViewController {
 // MARK: - Table View Extension
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
+    private enum Constants {
+        static let sendCellIdentifier = "SendCell"
+        static let recieveCellIdentifier = "RecieveCell"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let message = messages[indexPath.section]
+        if(message.sender == .current) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.sendCellIdentifier, for: indexPath) as! MessageSendTableViewCell
+            cell.message.text = message.sentMessage
+            cell.time.text = message.time
+            return cell
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.recieveCellIdentifier, for: indexPath) as! MessageRecieveTableViewCell
+        cell.message.text = message.sentMessage
+        cell.time.text = message.time
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return messages.count
+    }
 }

@@ -17,4 +17,8 @@ final class API {
     func getChats() -> [UserDataStructure] {
         return dataManager.getChats()
     }
+    
+    func getMessages(at index: Int) -> [Message]? {
+        return dataManager.getMessages(at: index)
+    }
 }

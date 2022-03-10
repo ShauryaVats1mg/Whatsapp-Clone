@@ -7,13 +7,17 @@
 
 import Foundation
 
+enum SenderType {
+    case current, other
+}
+
 struct Message {
-    var sender: String
+    var sender: SenderType
     var sentMessage: String
     var time: String
 }
 
 struct Messages {
     var id: Int
-    var messages: [Message]
+    var message: [Message]
 }

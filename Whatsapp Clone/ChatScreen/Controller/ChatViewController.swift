@@ -92,7 +92,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
         cell.lastMessage!.text = allChats[row].lastMessage
         
         //Downloading the image
-        if let url = allChats[row].profilePic {
+        /*if let url = allChats[row].profilePic {
             DispatchQueue.global().async {
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.main.async {
@@ -100,7 +100,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
-        }
+        }*/
         return cell
     }
     
