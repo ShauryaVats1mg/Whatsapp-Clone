@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="-441" y="-449"/>
         </scene>
-        <!--Chats-->
+        <!--Chats Listing-->
         <scene sceneID="Ode-11-dK1">
             <objects>
-                <viewController id="2v1-ob-IwG" userLabel="Chats" customClass="ChatViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2v1-ob-IwG" userLabel="Chats Listing" customClass="ChatListingViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YMG-3a-cGR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -272,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="387" y="283"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Chat Message View Controller-->
         <scene sceneID="KxU-NL-hEu">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="hF6-F7-46F" customClass="MessageViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="hF6-F7-46F" userLabel="Chat Message View Controller" customClass="ChatMessageViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ohU-Vn-TOJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

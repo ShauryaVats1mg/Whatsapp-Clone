@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class ChatViewController: UIViewController {
+class ChatListingViewController: UIViewController {
 
     private struct CellData {
         var cellIdentifier: String
@@ -59,7 +59,7 @@ class ChatViewController: UIViewController {
 
 // MARK: - View Controller Extension
 
-extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChatListingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allChats.count < 0 ? CellConstants.cells.count : allChats.count + CellConstants.cells.count
     }
@@ -119,7 +119,7 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! MessageViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatMessageViewController
 
         navigationController?.pushViewController(vc, animated: true)
         

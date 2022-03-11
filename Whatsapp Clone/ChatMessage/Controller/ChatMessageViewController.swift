@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessageViewController: UIViewController {
+class ChatMessageViewController: UIViewController {
 
     @IBOutlet weak var sendButton: UIButton?
     @IBOutlet weak var messageFeild: UITextField?
@@ -95,7 +95,7 @@ class MessageViewController: UIViewController {
 
 // MARK: - Table View Extension
 
-extension MessageViewController: UITableViewDelegate, UITableViewDataSource {
+extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource {
     private enum Constants {
         static let sendCellIdentifier = "SendCell"
         static let recieveCellIdentifier = "RecieveCell"
