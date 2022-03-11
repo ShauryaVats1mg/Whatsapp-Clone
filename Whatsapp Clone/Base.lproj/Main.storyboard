@@ -319,8 +319,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-dw-dez" userLabel="Background">
+                                                    <rect key="frame" x="300.5" y="0.0" width="97.5" height="35.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPs-2w-n4L" userLabel="Message">
-                                                    <rect key="frame" x="8" y="8" width="39.5" height="19.5"/>
+                                                    <rect key="frame" x="308.5" y="8" width="39.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -333,16 +337,20 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lbd-IU-KHA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pPs-2w-n4L" secondAttribute="trailing" constant="8" id="03j-ro-qi2"/>
+                                                <constraint firstItem="lbd-IU-KHA" firstAttribute="leading" secondItem="pPs-2w-n4L" secondAttribute="trailing" constant="8" id="03j-ro-qi2"/>
                                                 <constraint firstAttribute="trailing" secondItem="lbd-IU-KHA" secondAttribute="trailing" constant="8" id="9qf-8T-LLM"/>
                                                 <constraint firstAttribute="bottom" secondItem="lbd-IU-KHA" secondAttribute="bottom" constant="8" id="FP9-aO-bPw"/>
-                                                <constraint firstItem="pPs-2w-n4L" firstAttribute="leading" secondItem="fOC-Z9-2Mq" secondAttribute="leading" constant="8" id="II1-9R-38U"/>
+                                                <constraint firstItem="pPs-2w-n4L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fOC-Z9-2Mq" secondAttribute="leading" constant="8" id="II1-9R-38U"/>
+                                                <constraint firstItem="Jrv-dw-dez" firstAttribute="top" secondItem="fOC-Z9-2Mq" secondAttribute="top" id="Q0l-w5-rW8"/>
                                                 <constraint firstAttribute="bottom" secondItem="pPs-2w-n4L" secondAttribute="bottom" constant="8" id="VyP-Om-peQ"/>
                                                 <constraint firstItem="pPs-2w-n4L" firstAttribute="top" secondItem="fOC-Z9-2Mq" secondAttribute="top" constant="8" id="YUQ-UW-ksh"/>
+                                                <constraint firstAttribute="bottom" secondItem="Jrv-dw-dez" secondAttribute="bottom" id="daj-YA-78o"/>
+                                                <constraint firstItem="Jrv-dw-dez" firstAttribute="leading" secondItem="pPs-2w-n4L" secondAttribute="leading" constant="-8" id="fRs-pB-hQX"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jrv-dw-dez" secondAttribute="trailing" id="hVp-wG-N0M"/>
                                                 <constraint firstItem="lbd-IU-KHA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fOC-Z9-2Mq" secondAttribute="top" constant="8" id="lv2-ov-szz"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="message" destination="pPs-2w-n4L" id="FlJ-bs-E74"/>
                                             <outlet property="time" destination="lbd-IU-KHA" id="64j-4C-Jzx"/>
@@ -355,6 +363,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT9-co-bwU" userLabel="Background">
+                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="35.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-4v-tCN" userLabel="Message">
                                                     <rect key="frame" x="8" y="8" width="39.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -362,18 +374,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9m-wi-Yh4">
-                                                    <rect key="frame" x="356" y="13" width="34" height="14.5"/>
+                                                    <rect key="frame" x="55.5" y="13" width="34" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="S9m-wi-Yh4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fCd-4v-tCN" secondAttribute="trailing" constant="8" id="DLR-Yj-yd7"/>
+                                                <constraint firstItem="WT9-co-bwU" firstAttribute="top" secondItem="Ex6-Bg-8kK" secondAttribute="top" id="B4E-YG-qF4"/>
+                                                <constraint firstItem="S9m-wi-Yh4" firstAttribute="leading" secondItem="fCd-4v-tCN" secondAttribute="trailing" constant="8" id="DLR-Yj-yd7"/>
+                                                <constraint firstItem="WT9-co-bwU" firstAttribute="trailing" secondItem="S9m-wi-Yh4" secondAttribute="trailing" constant="8" id="G7d-it-UCT"/>
+                                                <constraint firstAttribute="bottom" secondItem="WT9-co-bwU" secondAttribute="bottom" id="MJd-7q-1zX"/>
                                                 <constraint firstItem="fCd-4v-tCN" firstAttribute="leading" secondItem="Ex6-Bg-8kK" secondAttribute="leading" constant="8" id="WTT-93-rWE"/>
                                                 <constraint firstAttribute="bottom" secondItem="S9m-wi-Yh4" secondAttribute="bottom" constant="8" id="aJp-OM-OxX"/>
                                                 <constraint firstItem="S9m-wi-Yh4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ex6-Bg-8kK" secondAttribute="top" constant="8" id="fVp-gJ-vOA"/>
-                                                <constraint firstAttribute="trailing" secondItem="S9m-wi-Yh4" secondAttribute="trailing" constant="8" id="j7K-bx-EDw"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="S9m-wi-Yh4" secondAttribute="trailing" constant="8" id="j7K-bx-EDw"/>
+                                                <constraint firstItem="WT9-co-bwU" firstAttribute="leading" secondItem="Ex6-Bg-8kK" secondAttribute="leading" id="kel-Hr-TVI"/>
                                                 <constraint firstAttribute="bottom" secondItem="fCd-4v-tCN" secondAttribute="bottom" constant="8" id="xwd-by-E0s"/>
                                                 <constraint firstItem="fCd-4v-tCN" firstAttribute="top" secondItem="Ex6-Bg-8kK" secondAttribute="top" constant="8" id="yiW-vj-DQZ"/>
                                             </constraints>
@@ -423,6 +439,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
