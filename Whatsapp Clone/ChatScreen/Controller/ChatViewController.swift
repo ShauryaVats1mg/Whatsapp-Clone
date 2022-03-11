@@ -123,6 +123,6 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
 
         navigationController?.pushViewController(vc, animated: true)
         
-        vc.setup(tableView.cellForRow(at: indexPath) as? DefaultCell)
+        vc.setup(tableView.cellForRow(at: indexPath) as? DefaultCell, index: indexPath.row - CellConstants.cells.count)
     }
 }

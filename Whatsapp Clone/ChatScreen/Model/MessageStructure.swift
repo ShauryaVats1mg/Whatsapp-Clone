@@ -7,17 +7,18 @@
 
 import Foundation
 
-enum SenderType {
-    case current, other
+enum SenderType: String, Codable {
+    case current = "current"
+    case other = "other"
 }
 
-struct Message {
+struct Message: Codable {
     var sender: SenderType
     var sentMessage: String
     var time: String
 }
 
-struct Messages {
+struct Messages: Codable {
     var id: Int
     var message: [Message]
 }

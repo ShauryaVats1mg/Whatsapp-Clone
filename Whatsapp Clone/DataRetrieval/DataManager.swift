@@ -10,6 +10,7 @@ import UIKit
 
 private enum Constants {
     static let chatFilename = "ChatPerson"
+    static let messageFilename = "ChatMessages"
 }
 
 class DataManager {
@@ -17,15 +18,20 @@ class DataManager {
     private var messages = [Messages]()
     
     init() {
-        if let localData = self.readLocalFile() {
-            self.parse(jsonData: localData)
+        if let localData = readLocalFile(Constants.chatFilename) {
+            parseChats(jsonData: localData)
         }
         
-        messages.append(Messages(id: 0, message: [Message(sender: .current, sentMessage: "Hello World", time: "05:53"), Message(sender: .other, sentMessage: "Message", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53"), Message(sender: .other, sentMessage: "Hello World", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53")]))
+        if let localData = readLocalFile(Constants.messageFilename) {
+            parseMessages(jsonData: localData)
+        }
+        
+        //messages.append(Messages(id: 0, message: [Message(sender: .current, sentMessage: "Hello World", time: "05:53"), Message(sender: .other, sentMessage: "Message", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53"), Message(sender: .other, sentMessage: "Hello World", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53")]))
     }
     
-    private func readLocalFile() -> Data? {
-        guard let bundlePath = Bundle.main.url(forResource: Constants.chatFilename, withExtension: "json") else{
+    private func readLocalFile(_ fileName: String) -> Data? {
+        guard let bundlePath = Bundle.main.url(forResource: fileName, withExtension: "json") else{
+            print("File not found")
             return nil
         }
         do {
@@ -39,7 +45,7 @@ class DataManager {
         return nil
     }
     
-    private func parse(jsonData: Data) {
+    private func parseChats(jsonData: Data) {
         do {
             let decodedData = try JSONDecoder().decode([UserDataStructure].self, from: jsonData)
             
@@ -48,6 +54,18 @@ class DataManager {
         catch let error {
             print(error)
             print("decode error")
+        }
+    }
+    
+    private func parseMessages(jsonData: Data) {
+        do {
+            let decodedData = try JSONDecoder().decode([Messages].self, from: jsonData)
+            
+            messages = decodedData
+        }
+        catch let error {
+            print(error)
+            print("Decode error")
         }
     }
     

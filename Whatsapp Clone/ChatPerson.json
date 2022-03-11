@@ -36,13 +36,6 @@
     },
     {
         "profilePic": null,
-        "name": "Group 3",
-        "time": "05:53",
-        "lastMessage": "Last Message",
-        "isGroup": true
-    },
-    {
-        "profilePic": null,
         "name": "UserName 4",
         "time": "05:53",
         "lastMessage": "Last Message",
@@ -57,13 +50,6 @@
     },
     {
         "profilePic": null,
-        "name": "UserName 6",
-        "time": "05:53",
-        "lastMessage": "Last Message",
-        "isGroup": false
-    },
-    {
-        "profilePic": null,
         "name": "Group 4",
         "time": "05:53",
         "lastMessage": "Last Message",
@@ -72,13 +58,6 @@
     {
         "profilePic": "https://images.statusfacebook.com/profile_pictures/unique-dp/unique-profile-pictures-for-whatsapp-01.jpg",
         "name": "Group 5",
-        "time": "05:53",
-        "lastMessage": "Last Message",
-        "isGroup": true
-    },
-    {
-        "profilePic": null,
-        "name": "Group 6",
         "time": "05:53",
         "lastMessage": "Last Message",
         "isGroup": true

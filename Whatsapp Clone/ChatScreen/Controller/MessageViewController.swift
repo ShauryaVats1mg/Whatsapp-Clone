@@ -40,16 +40,12 @@ class MessageViewController: UIViewController {
         //Initialising the table view
         tableView?.delegate = self
         tableView?.dataSource = self
-        
-        messages = API.instance.getMessages(at: 0)!
     }
     
-    func setup(_ chatDetails: DefaultCell?) {
+    func setup(_ chatDetails: DefaultCell?, index: Int) {
         guard let _ = chatDetails else {
             return;
         }
-        
-        //title = chatDetails?.name.text
         
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
         
@@ -78,6 +74,8 @@ class MessageViewController: UIViewController {
         let callButton = UIBarButtonItem(image: UIImage(systemName: "phone"), style: .plain, target: nil, action: nil)
         
         navigationItem.rightBarButtonItems = [callButton, videoButton]
+        
+        messages = API.instance.getMessages(at: index)!
     }
     
     @objc func backButtonPressed() {

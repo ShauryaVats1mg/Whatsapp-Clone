@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9A8743027DB200300D95B90 /* ChatMessages.json in Resources */ = {isa = PBXBuildFile; fileRef = D9A8742F27DB200300D95B90 /* ChatMessages.json */; };
 		D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE961E27C66B2500451F98 /* AppDelegate.swift */; };
 		D9AE962127C66B2500451F98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE962027C66B2500451F98 /* SceneDelegate.swift */; };
 		D9AE962627C66B2500451F98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AE962427C66B2500451F98 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9A8742F27DB200300D95B90 /* ChatMessages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatMessages.json; sourceTree = "<group>"; };
 		D9AE961B27C66B2500451F98 /* Whatsapp Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whatsapp Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AE961E27C66B2500451F98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AE962027C66B2500451F98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				D9AE962927C66B2900451F98 /* LaunchScreen.storyboard */,
 				D9AE962C27C66B2900451F98 /* Info.plist */,
 				D9AE965227CF616A00451F98 /* ChatPerson.json */,
+				D9A8742F27DB200300D95B90 /* ChatMessages.json */,
 			);
 			path = "Whatsapp Clone";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				D9AE962B27C66B2900451F98 /* LaunchScreen.storyboard in Resources */,
 				D9AE962827C66B2900451F98 /* Assets.xcassets in Resources */,
+				D9A8743027DB200300D95B90 /* ChatMessages.json in Resources */,
 				D9AE965327CF616A00451F98 /* ChatPerson.json in Resources */,
 				D9AE962627C66B2500451F98 /* Main.storyboard in Resources */,
 			);
