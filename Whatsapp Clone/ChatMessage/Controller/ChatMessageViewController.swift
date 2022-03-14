@@ -25,7 +25,7 @@ class ChatMessageViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) should not have been called. Call init(coder:ChatListingStructure:Int) to initialise this class")
     }
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class ChatMessageViewController: UIViewController {
         setupNavigationBar()
     }
     
-    func setupNavigationBar() {
+    func setupLeftNavigationBarItems() {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
         
         /*let profilePicButton = UIButton(type: .custom)
@@ -78,12 +78,20 @@ class ChatMessageViewController: UIViewController {
         nameButton.font = UIFont.boldSystemFont(ofSize: 16.0)
         
         navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton), UIBarButtonItem(customView: nameButton)]
-        
+    }
+    
+    func setupRightNavigationBarItems() {
         let videoButton = UIBarButtonItem(image: UIImage(systemName: "video"), style: .plain, target: nil, action: nil)
         
         let callButton = UIBarButtonItem(image: UIImage(systemName: "phone"), style: .plain, target: nil, action: nil)
         
         navigationItem.rightBarButtonItems = [callButton, videoButton]
+    }
+    
+    func setupNavigationBar() {
+        setupLeftNavigationBarItems()
+        
+        setupRightNavigationBarItems()
     }
     
     @objc func backButtonPressed() {
