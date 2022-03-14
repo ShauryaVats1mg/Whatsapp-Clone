@@ -14,7 +14,19 @@ class ChatMessageViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView?
     
-    private var messages = [Message]()
+    private var chatMessages: [Message]
+    private var chatListingDetails: ChatListingStructure
+    
+    init?(coder: NSCoder, chatDetails: ChatListingStructure, chatIndex: Int) {
+        self.chatListingDetails = chatDetails
+        self.chatMessages = API.instance.getChatMessages(at: chatIndex) ?? []
+        
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +37,6 @@ class ChatMessageViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
         
         //Initialise the navigation bar
-        navigationController?.navigationBar.backgroundColor = UIColor.systemGray6
         navigationController?.navigationBar.prefersLargeTitles = false
         
         //Initialise the bottom bar
@@ -40,13 +51,11 @@ class ChatMessageViewController: UIViewController {
         //Initialising the table view
         tableView?.delegate = self
         tableView?.dataSource = self
+        
+        setupNavigationBar()
     }
     
-    func setup(_ chatDetails: DefaultCell?, index: Int) {
-        guard let _ = chatDetails else {
-            return;
-        }
-        
+    func setupNavigationBar() {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
         
         /*let profilePicButton = UIButton(type: .custom)
@@ -56,15 +65,16 @@ class ChatMessageViewController: UIViewController {
         
         navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton)]
         */
-        
+                
         let profilePicButton = UIButton(type: .custom)
-        let image = chatDetails?.profilePic
-        image?.backgroundColor = UIColor.lightGray
-        image?.tintColor = UIColor.systemBackground
-        profilePicButton.setBackgroundImage(image?.image?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let imageView = profilePicButton.imageView
+        imageView?.image = (chatListingDetails.isGroup) ? ChatDefaults.groupProfilePic: ChatDefaults.userProfilePic
+        imageView?.backgroundColor = UIColor.lightGray
+        imageView?.tintColor = UIColor.systemBackground
+        profilePicButton.setBackgroundImage(imageView?.image?.withRenderingMode(.alwaysOriginal), for: .normal)
         
         let nameButton = UILabel()
-        nameButton.text = chatDetails?.name.text
+        nameButton.text = chatListingDetails.name
         nameButton.font = UIFont.boldSystemFont(ofSize: 16.0)
         
         navigationItem.leftBarButtonItems = [backButton, UIBarButtonItem(customView: profilePicButton), UIBarButtonItem(customView: nameButton)]
@@ -74,8 +84,6 @@ class ChatMessageViewController: UIViewController {
         let callButton = UIBarButtonItem(image: UIImage(systemName: "phone"), style: .plain, target: nil, action: nil)
         
         navigationItem.rightBarButtonItems = [callButton, videoButton]
-        
-        messages = API.instance.getMessages(at: index)!
     }
     
     @objc func backButtonPressed() {
@@ -84,7 +92,6 @@ class ChatMessageViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         //Deinitialise the navigation bar
-        navigationController?.navigationBar.backgroundColor = UIColor.systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         
         //Un hide the tab bar
@@ -106,7 +113,7 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = messages[indexPath.section]
+        let message = chatMessages[indexPath.section]
         if(message.sender == .current) {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.sendCellIdentifier, for: indexPath) as! MessageSendTableViewCell
             cell.message.text = message.sentMessage
@@ -124,6 +131,6 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return messages.count
+        return chatMessages.count
     }
 }

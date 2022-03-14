@@ -26,15 +26,17 @@ class ChatListingViewController: UIViewController {
         static let defaultCellHeight = 80
     }
     
-    private enum ChatDefaults {
-        static let userProfilePic = UIImage.init(systemName: "person.fill")
-        static let groupProfilePic = UIImage.init(systemName: "person.2.fill")
+    @IBOutlet var tableView: UITableView?
+    
+    private var currentChatIndex: Int
+    private var allChats: [ChatListingStructure]
+    
+    required init?(coder: NSCoder) {
+        currentChatIndex = 0
+        allChats = API.instance.getChatListing()
+        
+        super.init(coder: coder)
     }
-    
-    @IBOutlet var tableView: UITableView!
-    
-    private var currentChatIndex = 0
-    private var allChats = [UserDataStructure]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +45,13 @@ class ChatListingViewController: UIViewController {
         
         self.title = "Chats"
         
-        allChats = API.instance.getChats()
+        tableView?.dataSource = self
+        tableView?.delegate = self
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.rowHeight = CGFloat(CellConstants.defaultCellHeight);
+        tableView?.rowHeight = CGFloat(CellConstants.defaultCellHeight);
         
         //To hide the initial search bar in the chat
-        tableView.contentOffset = CGPoint(x: 0, y: tableView.rowHeight)
+        tableView?.contentOffset = CGPoint(x: 0, y: tableView!.rowHeight)
         
         navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -67,16 +67,16 @@ extension ChatListingViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (indexPath.row == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as! SearchBarTableViewCell
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as? SearchBarTableViewCell
+            return cell ?? UITableViewCell()
         }
         
         if (indexPath.row < CellConstants.cells.count) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as! DefaultCell
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cells[indexPath.row].cellIdentifier, for: indexPath) as? DefaultCell
+            return cell ?? UITableViewCell()
         }
         
-        let cell: DefaultCell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cellIdentifier, for: indexPath) as! DefaultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellConstants.cellIdentifier, for: indexPath) as? DefaultCell
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -85,11 +85,11 @@ extension ChatListingViewController: UITableViewDataSource, UITableViewDelegate 
         let row = indexPath.row - CellConstants.cells.count
         
         //Applying the data of the user to the chat
-        cell.profilePic.image = (allChats[row].isGroup ? ChatDefaults.groupProfilePic : ChatDefaults.userProfilePic)
-        cell.profilePic.makeRounded()
-        cell.name!.text = allChats[row].name
-        cell.time!.text = allChats[row].time
-        cell.lastMessage!.text = allChats[row].lastMessage
+        cell?.profilePic.image = (allChats[row].isGroup ? ChatDefaults.groupProfilePic : ChatDefaults.userProfilePic)
+        cell?.profilePic.makeRounded()
+        cell?.name.text = allChats[row].name
+        cell?.time.text = allChats[row].time
+        cell?.lastMessage.text = allChats[row].lastMessage
         
         //Downloading the image
         /*if let url = allChats[row].profilePic {
@@ -101,7 +101,7 @@ extension ChatListingViewController: UITableViewDataSource, UITableViewDelegate 
                 }
             }
         }*/
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -119,10 +119,14 @@ extension ChatListingViewController: UITableViewDataSource, UITableViewDelegate 
             return
         }
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ChatViewController") as! ChatMessageViewController
-
-        navigationController?.pushViewController(vc, animated: true)
+        let index = indexPath.row - CellConstants.cells.count
         
-        vc.setup(tableView.cellForRow(at: indexPath) as? DefaultCell, index: indexPath.row - CellConstants.cells.count)
+        let vc = storyboard?.instantiateViewController(identifier: "ChatViewController", creator: {coder -> ChatMessageViewController? in ChatMessageViewController(coder: coder, chatDetails: self.allChats[index], chatIndex: index)})
+        
+        guard let vc = vc else {
+            fatalError("Can not instantiate the Message View Controller")
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

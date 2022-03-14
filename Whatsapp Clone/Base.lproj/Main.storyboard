@@ -418,7 +418,7 @@
                     <connections>
                         <outlet property="messageFeild" destination="Gec-Ud-e9A" id="IbP-9F-ZDv"/>
                         <outlet property="sendButton" destination="ri0-zF-4Ii" id="ljP-Hy-7bc"/>
-                        <outlet property="tableView" destination="Uly-6k-UAj" id="P0B-hd-OV5"/>
+                        <outlet property="tableView" destination="Uly-6k-UAj" id="Pmd-TP-k0i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H04-7m-tiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -14,11 +14,11 @@ final class API {
     
     private init(){}
     
-    func getChats() -> [UserDataStructure] {
+    func getChatListing() -> [ChatListingStructure] {
         return dataManager.getChats()
     }
     
-    func getMessages(at index: Int) -> [Message]? {
+    func getChatMessages(at index: Int) -> [Message]? {
         return dataManager.getMessages(at: index)
     }
 }

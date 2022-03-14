@@ -14,7 +14,7 @@ private enum Constants {
 }
 
 class DataManager {
-    private var chats = [UserDataStructure]()
+    private var chats = [ChatListingStructure]()
     private var messages = [Messages]()
     
     init() {
@@ -25,8 +25,6 @@ class DataManager {
         if let localData = readLocalFile(Constants.messageFilename) {
             parseMessages(jsonData: localData)
         }
-        
-        //messages.append(Messages(id: 0, message: [Message(sender: .current, sentMessage: "Hello World", time: "05:53"), Message(sender: .other, sentMessage: "Message", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53"), Message(sender: .other, sentMessage: "Hello World", time: "05:53"), Message(sender: .current, sentMessage: "Message", time: "05:53")]))
     }
     
     private func readLocalFile(_ fileName: String) -> Data? {
@@ -47,7 +45,7 @@ class DataManager {
     
     private func parseChats(jsonData: Data) {
         do {
-            let decodedData = try JSONDecoder().decode([UserDataStructure].self, from: jsonData)
+            let decodedData = try JSONDecoder().decode([ChatListingStructure].self, from: jsonData)
             
             chats = decodedData
         }
@@ -69,7 +67,7 @@ class DataManager {
         }
     }
     
-    func getChats() -> [UserDataStructure] {
+    func getChats() -> [ChatListingStructure] {
         return chats
     }
     
