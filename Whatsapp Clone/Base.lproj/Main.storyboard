@@ -280,36 +280,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDr-Kx-wNj">
-                                <rect key="frame" x="8" y="741" width="398" height="64"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gec-Ud-e9A" userLabel="MessageInput">
-                                        <rect key="frame" x="8" y="8" width="326" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri0-zF-4Ii" userLabel="Send">
-                                        <rect key="frame" x="342" y="8" width="48" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ri0-zF-4Ii" secondAttribute="height" multiplier="1:1" id="B6h-Rr-oST"/>
-                                        </constraints>
-                                        <buttonConfiguration key="configuration" style="filled" image="arrow.right" catalog="system"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstItem="Gec-Ud-e9A" firstAttribute="leading" secondItem="IDr-Kx-wNj" secondAttribute="leading" constant="8" id="U7z-UZ-11s"/>
-                                    <constraint firstAttribute="bottom" secondItem="Gec-Ud-e9A" secondAttribute="bottom" constant="8" id="ad0-aZ-kwC"/>
-                                    <constraint firstItem="Gec-Ud-e9A" firstAttribute="top" secondItem="IDr-Kx-wNj" secondAttribute="top" constant="8" id="cCW-DK-zZO"/>
-                                    <constraint firstAttribute="trailing" secondItem="ri0-zF-4Ii" secondAttribute="trailing" constant="8" id="eWg-QM-M1F"/>
-                                    <constraint firstAttribute="height" constant="64" id="hJM-1P-F05"/>
-                                    <constraint firstItem="ri0-zF-4Ii" firstAttribute="top" secondItem="IDr-Kx-wNj" secondAttribute="top" constant="8" id="hwa-c6-iTH"/>
-                                    <constraint firstItem="ri0-zF-4Ii" firstAttribute="leading" secondItem="Gec-Ud-e9A" secondAttribute="trailing" constant="8" id="ln2-Lm-5QV"/>
-                                    <constraint firstAttribute="bottom" secondItem="ri0-zF-4Ii" secondAttribute="bottom" constant="8" id="ovJ-du-WDZ"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj">
-                                <rect key="frame" x="8" y="148" width="398" height="585"/>
+                                <rect key="frame" x="8" y="148" width="398" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SendCell" id="VOu-Jp-hJy" customClass="MessageSendTableViewCell" customModule="Whatsapp_Clone" customModuleProvider="target">
@@ -407,17 +379,12 @@
                         <constraints>
                             <constraint firstItem="Uly-6k-UAj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="CA6-BV-H3E"/>
                             <constraint firstItem="Uly-6k-UAj" firstAttribute="top" secondItem="k8z-1b-bx2" secondAttribute="top" constant="8" id="PjW-aL-hJz"/>
-                            <constraint firstItem="IDr-Kx-wNj" firstAttribute="top" secondItem="Uly-6k-UAj" secondAttribute="bottom" constant="8" id="SnV-o2-Dse"/>
-                            <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="IDr-Kx-wNj" secondAttribute="trailing" constant="8" id="ZTl-1A-qzW"/>
-                            <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="IDr-Kx-wNj" secondAttribute="bottom" constant="8" id="epD-x7-tTP"/>
-                            <constraint firstItem="IDr-Kx-wNj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="k88-oh-RiM"/>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="Uly-6k-UAj" secondAttribute="bottom" id="ugV-vt-mAA"/>
                             <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="Uly-6k-UAj" secondAttribute="trailing" constant="8" id="vAV-rm-Fx8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>
                     <connections>
-                        <outlet property="messageFeild" destination="Gec-Ud-e9A" id="IbP-9F-ZDv"/>
-                        <outlet property="sendButton" destination="ri0-zF-4Ii" id="ljP-Hy-7bc"/>
                         <outlet property="tableView" destination="Uly-6k-UAj" id="Pmd-TP-k0i"/>
                     </connections>
                 </viewController>
@@ -428,14 +395,10 @@
     </scenes>
     <resources>
         <image name="archivebox" catalog="system" width="128" height="106"/>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91A9C4F27E0A588009189B5 /* InputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */; };
+		D91A9C5127E0A9C1009189B5 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */; };
 		D9A8743027DB200300D95B90 /* ChatMessages.json in Resources */ = {isa = PBXBuildFile; fileRef = D9A8742F27DB200300D95B90 /* ChatMessages.json */; };
 		D9A8743827DB522E00D95B90 /* ChatDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8743727DB522E00D95B90 /* ChatDefaults.swift */; };
 		D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE961E27C66B2500451F98 /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputAccessoryView.xib; sourceTree = "<group>"; };
+		D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryView.swift; sourceTree = "<group>"; };
 		D9A8742F27DB200300D95B90 /* ChatMessages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatMessages.json; sourceTree = "<group>"; };
 		D9A8743727DB522E00D95B90 /* ChatDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDefaults.swift; sourceTree = "<group>"; };
 		D9AE961B27C66B2500451F98 /* Whatsapp Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whatsapp Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,8 @@
 		D9A8743327DB3E4400D95B90 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */,
+				D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */,
 				D9AE965F27D9CD3900451F98 /* MessageTableCells */,
 			);
 			path = View;
@@ -289,6 +295,7 @@
 			files = (
 				D9AE962B27C66B2900451F98 /* LaunchScreen.storyboard in Resources */,
 				D9AE962827C66B2900451F98 /* Assets.xcassets in Resources */,
+				D91A9C4F27E0A588009189B5 /* InputAccessoryView.xib in Resources */,
 				D9A8743027DB200300D95B90 /* ChatMessages.json in Resources */,
 				D9AE965327CF616A00451F98 /* ChatPerson.json in Resources */,
 				D9AE962627C66B2500451F98 /* Main.storyboard in Resources */,
@@ -312,6 +319,7 @@
 				D9AE964F27CDE26700451F98 /* UIView.swift in Sources */,
 				D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */,
 				D9AE963A27C78C1400451F98 /* ChatListingStructure.swift in Sources */,
+				D91A9C5127E0A9C1009189B5 /* InputAccessoryView.swift in Sources */,
 				D9AE965127CE072700451F98 /* SearchBarTableViewCell.swift in Sources */,
 				D9A8743827DB522E00D95B90 /* ChatDefaults.swift in Sources */,
 				D9AE966327D9CDBE00451F98 /* MessageRecieveTableViewCell.swift in Sources */,

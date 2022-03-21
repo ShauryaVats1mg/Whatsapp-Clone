@@ -17,6 +17,8 @@ class ChatMessageViewController: UIViewController {
     private var chatMessages: [Message]
     private var chatListingDetails: ChatListingStructure
     
+    //MARK: Class Initialisers
+    
     init?(coder: NSCoder, chatDetails: ChatListingStructure, chatIndex: Int) {
         self.chatListingDetails = chatDetails
         self.chatMessages = API.instance.getChatMessages(at: chatIndex) ?? []
@@ -26,6 +28,20 @@ class ChatMessageViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) should not have been called. Call init(coder:ChatListingStructure:Int) to initialise this class")
+    }
+    
+    //MARK: View Controller Overrides
+    
+    override var inputAccessoryView: UIView? {
+        get {
+            return InputAccessoryView(frame: CGRect(x: 0, y: 0, width: 40, height: 24))
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
     }
     
     override func viewDidLoad() {
@@ -53,7 +69,21 @@ class ChatMessageViewController: UIViewController {
         tableView?.dataSource = self
         
         setupNavigationBar()
+        
+        setupInputTextField()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //Deinitialise the navigation bar
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Un hide the tab bar
+        tabBarController?.tabBar.isHidden = false
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: Navigation Bar Setup
     
     func setupLeftNavigationBarItems() {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
@@ -98,14 +128,36 @@ class ChatMessageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        //Deinitialise the navigation bar
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        //Un hide the tab bar
-        tabBarController?.tabBar.isHidden = false
+    //MARK: Setup Input Text Field
+    
+    func setupInputTextField() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
+    private var isKeyboardShowing: Bool = false
+    
+    @objc func adjustKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            if !isKeyboardShowing {
+                view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardViewEndFrame.height)
+                isKeyboardShowing = true
+            }
+        }
+        else {
+            if isKeyboardShowing {
+                view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height + keyboardViewEndFrame.height)
+                isKeyboardShowing = false
+            }
+        }
+    }
 }
 
 // MARK: - Table View Extension
