@@ -15,6 +15,12 @@ class InputAccessoryView: UIView {
     @IBOutlet weak var cameraButton: UIButton?
     @IBOutlet weak var micButton: UIButton?
     
+    override var intrinsicContentSize: CGSize {
+        get {
+            return CGSize.zero
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

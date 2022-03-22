@@ -276,33 +276,33 @@
         <scene sceneID="KxU-NL-hEu">
             <objects>
                 <viewController storyboardIdentifier="ChatViewController" id="hF6-F7-46F" userLabel="Chat Message View Controller" customClass="ChatMessageViewController" customModule="Whatsapp_Clone" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ohU-Vn-TOJ">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="ohU-Vn-TOJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj">
-                                <rect key="frame" x="8" y="148" width="398" height="665"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SendCell" id="VOu-Jp-hJy" customClass="MessageSendTableViewCell" customModule="Whatsapp_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="398" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="35.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VOu-Jp-hJy" id="fOC-Z9-2Mq">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="35.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-dw-dez" userLabel="Background">
-                                                    <rect key="frame" x="300.5" y="0.0" width="97.5" height="35.5"/>
+                                                    <rect key="frame" x="316.5" y="0.0" width="97.5" height="35.5"/>
                                                     <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPs-2w-n4L" userLabel="Message">
-                                                    <rect key="frame" x="308.5" y="8" width="39.5" height="19.5"/>
+                                                    <rect key="frame" x="324.5" y="8" width="39.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbd-IU-KHA" userLabel="Time">
-                                                    <rect key="frame" x="356" y="13" width="34" height="14.5"/>
+                                                    <rect key="frame" x="372" y="13" width="34" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -329,10 +329,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecieveCell" id="t35-WX-P9m" customClass="MessageRecieveTableViewCell" customModule="Whatsapp_Clone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="80" width="398" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="80" width="414" height="35.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t35-WX-P9m" id="Ex6-Bg-8kK">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="35.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT9-co-bwU" userLabel="Background">
@@ -377,10 +377,10 @@
                         <viewLayoutGuide key="safeArea" id="k8z-1b-bx2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Uly-6k-UAj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" constant="8" id="CA6-BV-H3E"/>
-                            <constraint firstItem="Uly-6k-UAj" firstAttribute="top" secondItem="k8z-1b-bx2" secondAttribute="top" constant="8" id="PjW-aL-hJz"/>
-                            <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="Uly-6k-UAj" secondAttribute="bottom" id="ugV-vt-mAA"/>
-                            <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="Uly-6k-UAj" secondAttribute="trailing" constant="8" id="vAV-rm-Fx8"/>
+                            <constraint firstItem="Uly-6k-UAj" firstAttribute="bottom" secondItem="k8z-1b-bx2" secondAttribute="bottom" id="C92-uW-QfB"/>
+                            <constraint firstItem="Uly-6k-UAj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" id="CA6-BV-H3E"/>
+                            <constraint firstItem="Uly-6k-UAj" firstAttribute="top" secondItem="k8z-1b-bx2" secondAttribute="top" id="PjW-aL-hJz"/>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="Uly-6k-UAj" secondAttribute="trailing" id="vAV-rm-Fx8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>

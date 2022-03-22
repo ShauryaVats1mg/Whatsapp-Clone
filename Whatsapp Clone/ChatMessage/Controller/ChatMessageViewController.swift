@@ -9,13 +9,16 @@ import UIKit
 
 class ChatMessageViewController: UIViewController {
 
-    @IBOutlet weak var sendButton: UIButton?
-    @IBOutlet weak var messageFeild: UITextField?
-    
     @IBOutlet weak var tableView: UITableView?
     
     private var chatMessages: [Message]
     private var chatListingDetails: ChatListingStructure
+    
+    lazy var inputAccessory: InputAccessoryView = {
+        let inputAccessory = InputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
+        inputAccessory.autoresizesSubviews = false
+        return inputAccessory
+    }()
     
     //MARK: Class Initialisers
     
@@ -34,11 +37,17 @@ class ChatMessageViewController: UIViewController {
     
     override var inputAccessoryView: UIView? {
         get {
-            return InputAccessoryView(frame: CGRect(x: 0, y: 0, width: 40, height: 24))
+            return inputAccessory
         }
     }
     
     override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override var canResignFirstResponder: Bool {
         get {
             return true
         }
@@ -55,15 +64,6 @@ class ChatMessageViewController: UIViewController {
         //Initialise the navigation bar
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        //Initialise the bottom bar
-        if let sendButton = sendButton {
-            sendButton.makeRounded()
-        }
-        
-        if let messageFeild = messageFeild {
-            messageFeild.makeRounded()
-        }
-        
         //Initialising the table view
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -71,6 +71,8 @@ class ChatMessageViewController: UIViewController {
         setupNavigationBar()
         
         setupInputTextField()
+        
+        tableView?.keyboardDismissMode = .interactive
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -131,7 +133,7 @@ class ChatMessageViewController: UIViewController {
     //MARK: Setup Input Text Field
     
     func setupInputTextField() {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -145,7 +147,7 @@ class ChatMessageViewController: UIViewController {
         let keyboardScreenEndFrame = keyboardValue.cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
-        if notification.name == UIResponder.keyboardWillChangeFrameNotification {
+        if notification.name == UIResponder.keyboardWillShowNotification {
             if !isKeyboardShowing {
                 view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardViewEndFrame.height)
                 isKeyboardShowing = true

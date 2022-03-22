@@ -90,9 +90,9 @@
 		D9A8743327DB3E4400D95B90 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9AE965F27D9CD3900451F98 /* MessageTableCells */,
 				D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */,
 				D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */,
-				D9AE965F27D9CD3900451F98 /* MessageTableCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
