@@ -15,8 +15,8 @@ class ChatMessageViewController: UIViewController {
     private var chatListingDetails: ChatListingStructure
     
     lazy var inputAccessory: InputAccessoryView = {
-        let inputAccessory = InputAccessoryView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 100))
-        inputAccessory.autoresizesSubviews = false
+        let inputAccessory = InputAccessoryView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        //inputAccessory.autoresizesSubviews = false
         return inputAccessory
     }()
     
@@ -133,31 +133,26 @@ class ChatMessageViewController: UIViewController {
     //MARK: Setup Input Text Field
     
     func setupInputTextField() {
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    private var isKeyboardShowing: Bool = false
+    @objc func showKeyboard(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            tableView?.contentInset.bottom = keyboardHeight
+            if keyboardHeight > 100 {
+                tableView?.scrollToBottom()
+            }
+        }
+    }
     
-    @objc func adjustKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        if notification.name == UIResponder.keyboardWillShowNotification {
-            if !isKeyboardShowing {
-                view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height - keyboardViewEndFrame.height)
-                isKeyboardShowing = true
-            }
-        }
-        else {
-            if isKeyboardShowing {
-                view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height + keyboardViewEndFrame.height)
-                isKeyboardShowing = false
-            }
+    @objc func hideKeyboard(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            tableView?.contentInset.bottom = keyboardHeight
         }
     }
 }
@@ -171,11 +166,11 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chatMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = chatMessages[indexPath.section]
+        let message = chatMessages[indexPath.row]
         if(message.sender == .current) {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.sendCellIdentifier, for: indexPath) as! MessageSendTableViewCell
             cell.message.text = message.sentMessage
@@ -190,9 +185,5 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return chatMessages.count
     }
 }
