@@ -9,16 +9,16 @@ import UIKit
 
 class ChatMessageViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var tableView: ChatMessageTableView?
     
     private var chatMessages: [Message]
     private var chatListingDetails: ChatListingStructure
     
-    lazy var inputAccessory: InputAccessoryView = {
+    /*lazy var inputAccessory: InputAccessoryView = {
         let inputAccessory = InputAccessoryView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
         //inputAccessory.autoresizesSubviews = false
         return inputAccessory
-    }()
+    }()*/
     
     //MARK: Class Initialisers
     
@@ -35,7 +35,7 @@ class ChatMessageViewController: UIViewController {
     
     //MARK: View Controller Overrides
     
-    override var inputAccessoryView: UIView? {
+    /*override var inputAccessoryView: UIView? {
         get {
             return inputAccessory
         }
@@ -51,7 +51,7 @@ class ChatMessageViewController: UIViewController {
         get {
             return true
         }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +70,13 @@ class ChatMessageViewController: UIViewController {
         
         setupNavigationBar()
         
-        setupInputTextField()
+        adjustKeyboard()
         
         tableView?.keyboardDismissMode = .interactive
+        
+        tableView?.becomeFirstResponder()
+        
+        tableView?.scrollToBottom()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -130,14 +134,15 @@ class ChatMessageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    //MARK: Setup Input Text Field
+    //MARK: Keyboard Adjustment
     
-    func setupInputTextField() {
+    func adjustKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func showKeyboard(_ notification: Notification) {
+        inputAccessoryView?.frame = CGRect(x: 0, y: 0, width: 0, height: 56)
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
@@ -149,6 +154,7 @@ class ChatMessageViewController: UIViewController {
     }
     
     @objc func hideKeyboard(_ notification: Notification) {
+        inputAccessoryView?.frame = CGRect(x: 0, y: 0, width: 0, height: 100)
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height

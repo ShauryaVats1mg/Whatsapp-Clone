@@ -12,7 +12,7 @@ class InputAccessoryView: UIView {
     @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var addButton: UIButton?
-    @IBOutlet weak var textField: UITextField?
+    @IBOutlet weak var textView: UITextView?
     @IBOutlet weak var cameraButton: UIButton?
     @IBOutlet weak var micButton: UIButton?
     
@@ -25,7 +25,7 @@ class InputAccessoryView: UIView {
         cameraButton?.titleLabel?.text = ""
         micButton?.titleLabel?.text = ""
         
-        textField?.makeRounded()
+        textView?.makeRounded()
     }
     
     required init?(coder: NSCoder) {
@@ -33,10 +33,20 @@ class InputAccessoryView: UIView {
         setup()
     }
     
+    override func didMoveToWindow() {
+      super.didMoveToWindow()
+      if #available(iOS 11.0, *) {
+        if let window = self.window {
+            self.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
+        }
+      }
+    }
+    
     private func setup() {
         Bundle.main.loadNibNamed("InputAccessoryView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

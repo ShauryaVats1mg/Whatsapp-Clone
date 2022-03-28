@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99D0F1B781A06F4345993F2F /* Pods_Whatsapp_Clone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2C7A6278D43759D636E8F6 /* Pods_Whatsapp_Clone.framework */; };
 		D91A9C4F27E0A588009189B5 /* InputAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */; };
 		D91A9C5127E0A9C1009189B5 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */; };
 		D991EA2427EDA1D800CAE8CB /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D991EA2327EDA1D800CAE8CB /* UITableView.swift */; };
+		D9A0951827F1A3FE00075D1A /* ChatMessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A0951727F1A3FE00075D1A /* ChatMessageTableView.swift */; };
 		D9A8743027DB200300D95B90 /* ChatMessages.json in Resources */ = {isa = PBXBuildFile; fileRef = D9A8742F27DB200300D95B90 /* ChatMessages.json */; };
 		D9A8743827DB522E00D95B90 /* ChatDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8743727DB522E00D95B90 /* ChatDefaults.swift */; };
 		D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AE961E27C66B2500451F98 /* AppDelegate.swift */; };
@@ -33,9 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49F8401BACFEF7FCC7721B84 /* Pods-Whatsapp Clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whatsapp Clone.debug.xcconfig"; path = "Target Support Files/Pods-Whatsapp Clone/Pods-Whatsapp Clone.debug.xcconfig"; sourceTree = "<group>"; };
+		AD2C7A6278D43759D636E8F6 /* Pods_Whatsapp_Clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whatsapp_Clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputAccessoryView.xib; sourceTree = "<group>"; };
 		D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccessoryView.swift; sourceTree = "<group>"; };
 		D991EA2327EDA1D800CAE8CB /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		D9A0951727F1A3FE00075D1A /* ChatMessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageTableView.swift; sourceTree = "<group>"; };
 		D9A8742F27DB200300D95B90 /* ChatMessages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatMessages.json; sourceTree = "<group>"; };
 		D9A8743727DB522E00D95B90 /* ChatDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDefaults.swift; sourceTree = "<group>"; };
 		D9AE961B27C66B2500451F98 /* Whatsapp Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whatsapp Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +63,7 @@
 		D9AE965B27D8993C00451F98 /* MessageStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStructure.swift; sourceTree = "<group>"; };
 		D9AE966027D9CD9900451F98 /* MessageSendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendTableViewCell.swift; sourceTree = "<group>"; };
 		D9AE966227D9CDBE00451F98 /* MessageRecieveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRecieveTableViewCell.swift; sourceTree = "<group>"; };
+		DD36308C04983F0B2A55A0D7 /* Pods-Whatsapp Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whatsapp Clone.release.xcconfig"; path = "Target Support Files/Pods-Whatsapp Clone/Pods-Whatsapp Clone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +71,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D0F1B781A06F4345993F2F /* Pods_Whatsapp_Clone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DD4ADC5AE00E00CE7D60912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD2C7A6278D43759D636E8F6 /* Pods_Whatsapp_Clone.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		966812CA919CEFB608DECB32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49F8401BACFEF7FCC7721B84 /* Pods-Whatsapp Clone.debug.xcconfig */,
+				DD36308C04983F0B2A55A0D7 /* Pods-Whatsapp Clone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D9A8743127DB3CFE00D95B90 /* ChatMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +119,7 @@
 				D9AE965F27D9CD3900451F98 /* MessageTableCells */,
 				D91A9C5027E0A9C1009189B5 /* InputAccessoryView.swift */,
 				D91A9C4E27E0A587009189B5 /* InputAccessoryView.xib */,
+				D9A0951727F1A3FE00075D1A /* ChatMessageTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +154,8 @@
 			children = (
 				D9AE961D27C66B2500451F98 /* Whatsapp Clone */,
 				D9AE961C27C66B2500451F98 /* Products */,
+				966812CA919CEFB608DECB32 /* Pods */,
+				3DD4ADC5AE00E00CE7D60912 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,9 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9AE962F27C66B2900451F98 /* Build configuration list for PBXNativeTarget "Whatsapp Clone" */;
 			buildPhases = (
+				F0A18331A8210CF7C714ABC2 /* [CP] Check Pods Manifest.lock */,
 				D9AE961727C66B2500451F98 /* Sources */,
 				D9AE961827C66B2500451F98 /* Frameworks */,
 				D9AE961927C66B2500451F98 /* Resources */,
+				9001615B577935D09020F94E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,6 +336,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9001615B577935D09020F94E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Whatsapp Clone/Pods-Whatsapp Clone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Whatsapp Clone/Pods-Whatsapp Clone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Whatsapp Clone/Pods-Whatsapp Clone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0A18331A8210CF7C714ABC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Whatsapp Clone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D9AE961727C66B2500451F98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -323,6 +394,7 @@
 				D9AE961F27C66B2500451F98 /* AppDelegate.swift in Sources */,
 				D9AE963A27C78C1400451F98 /* ChatListingStructure.swift in Sources */,
 				D91A9C5127E0A9C1009189B5 /* InputAccessoryView.swift in Sources */,
+				D9A0951827F1A3FE00075D1A /* ChatMessageTableView.swift in Sources */,
 				D991EA2427EDA1D800CAE8CB /* UITableView.swift in Sources */,
 				D9AE965127CE072700451F98 /* SearchBarTableViewCell.swift in Sources */,
 				D9A8743827DB522E00D95B90 /* ChatDefaults.swift in Sources */,
@@ -472,6 +544,7 @@
 		};
 		D9AE963027C66B2900451F98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49F8401BACFEF7FCC7721B84 /* Pods-Whatsapp Clone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -500,6 +573,7 @@
 		};
 		D9AE963127C66B2900451F98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD36308C04983F0B2A55A0D7 /* Pods-Whatsapp Clone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

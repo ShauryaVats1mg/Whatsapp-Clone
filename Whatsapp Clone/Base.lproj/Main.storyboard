@@ -280,7 +280,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj">
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6k-UAj" customClass="ChatMessageTableView" customModule="Whatsapp_Clone" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -377,15 +377,15 @@
                         <viewLayoutGuide key="safeArea" id="k8z-1b-bx2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Uly-6k-UAj" firstAttribute="bottom" secondItem="k8z-1b-bx2" secondAttribute="bottom" id="C92-uW-QfB"/>
                             <constraint firstItem="Uly-6k-UAj" firstAttribute="leading" secondItem="k8z-1b-bx2" secondAttribute="leading" id="CA6-BV-H3E"/>
                             <constraint firstItem="Uly-6k-UAj" firstAttribute="top" secondItem="k8z-1b-bx2" secondAttribute="top" id="PjW-aL-hJz"/>
+                            <constraint firstItem="k8z-1b-bx2" firstAttribute="bottom" secondItem="Uly-6k-UAj" secondAttribute="bottom" id="m9w-w1-yU2"/>
                             <constraint firstItem="k8z-1b-bx2" firstAttribute="trailing" secondItem="Uly-6k-UAj" secondAttribute="trailing" id="vAV-rm-Fx8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vk4-Zb-WDG"/>
                     <connections>
-                        <outlet property="tableView" destination="Uly-6k-UAj" id="Pmd-TP-k0i"/>
+                        <outlet property="tableView" destination="Uly-6k-UAj" id="AWq-LX-axI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H04-7m-tiE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
