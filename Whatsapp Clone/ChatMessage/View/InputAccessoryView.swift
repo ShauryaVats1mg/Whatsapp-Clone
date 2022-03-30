@@ -16,6 +16,11 @@ class InputAccessoryView: UIView {
     @IBOutlet weak var cameraButton: UIButton?
     @IBOutlet weak var micButton: UIButton?
     
+    override var intrinsicContentSize: CGSize {
+        let size = textView?.sizeThatFits(CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude))
+        return CGSize(width: bounds.width, height: size?.height ?? contentView.bounds.height)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -25,28 +30,36 @@ class InputAccessoryView: UIView {
         cameraButton?.titleLabel?.text = ""
         micButton?.titleLabel?.text = ""
         
-        textView?.makeRounded()
+        //textView?.makeRounded()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
+        fatalError("init?(coder:) has not been implemented")
     }
     
     override func didMoveToWindow() {
-      super.didMoveToWindow()
-      if #available(iOS 11.0, *) {
-        if let window = self.window {
-            self.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
+        super.didMoveToWindow()
+        if #available(iOS 11.0, *) {
+            if let window = self.window {
+                contentView.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
+            }
         }
-      }
     }
     
     private func setup() {
         Bundle.main.loadNibNamed("InputAccessoryView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        textView?.translatesAutoresizingMaskIntoConstraints = false
+        textView?.delegate = self
+        textView?.isScrollEnabled = false
+    }
+}
+
+extension InputAccessoryView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        self.invalidateIntrinsicContentSize()
     }
 }

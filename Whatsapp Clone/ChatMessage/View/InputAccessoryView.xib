@@ -15,16 +15,16 @@
                 <outlet property="cameraButton" destination="A6R-9i-H54" id="IHX-ya-zVO"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="AOl-pG-xf3"/>
                 <outlet property="micButton" destination="5hf-Gn-ezv" id="Yi0-eF-PU6"/>
-                <outlet property="textView" destination="a0P-hb-eg9" id="rfe-rE-t14"/>
+                <outlet property="textView" destination="a0P-hb-eg9" id="8Mz-rm-VKb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="406" height="101"/>
+            <rect key="frame" x="0.0" y="0.0" width="406" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDf-ZO-NOD" userLabel="Add Button">
-                    <rect key="frame" x="0.0" y="69" width="24" height="24"/>
+                    <rect key="frame" x="0.0" y="68" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="QG8-i7-0oK"/>
                         <constraint firstAttribute="width" secondItem="UDf-ZO-NOD" secondAttribute="height" multiplier="1:1" id="qgM-hj-uTS"/>
@@ -33,14 +33,26 @@
                     <state key="normal" image="plus" catalog="system"/>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a0P-hb-eg9">
-                    <rect key="frame" x="32" y="52" width="310" height="41"/>
+                    <rect key="frame" x="32" y="52" width="310" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9By-gM-H0m"/>
+                    </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="minHeight">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
+                            <real key="value" value="128"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="trimWhiteSpaceWhenEndEditing" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </textView>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6R-9i-H54" userLabel="Camera Button">
-                    <rect key="frame" x="350" y="69" width="24" height="24"/>
+                    <rect key="frame" x="350" y="68" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="A6R-9i-H54" secondAttribute="height" multiplier="1:1" id="HXG-g3-Fyp"/>
                     </constraints>
@@ -48,7 +60,7 @@
                     <state key="normal" image="camera" catalog="system"/>
                 </button>
                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hf-Gn-ezv" userLabel="Microphone Button">
-                    <rect key="frame" x="382" y="69" width="24" height="24"/>
+                    <rect key="frame" x="382" y="68" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="5hf-Gn-ezv" secondAttribute="height" multiplier="1:1" id="7UI-O8-ELq"/>
                     </constraints>
@@ -68,9 +80,9 @@
                 <constraint firstItem="UDf-ZO-NOD" firstAttribute="height" secondItem="5hf-Gn-ezv" secondAttribute="height" id="JIR-Fu-Lkl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="a0P-hb-eg9" secondAttribute="bottom" constant="8" id="NYW-BL-xJx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5hf-Gn-ezv" secondAttribute="trailing" id="PM4-2d-ha4"/>
-                <constraint firstItem="a0P-hb-eg9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="UHq-bo-DKs"/>
                 <constraint firstItem="a0P-hb-eg9" firstAttribute="bottom" secondItem="5hf-Gn-ezv" secondAttribute="bottom" id="Vkp-xN-mwx"/>
                 <constraint firstItem="UDf-ZO-NOD" firstAttribute="bottom" secondItem="a0P-hb-eg9" secondAttribute="bottom" id="Vqf-yQ-5W2"/>
+                <constraint firstItem="a0P-hb-eg9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="xf1-nw-5ni"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="294.20289855072468" y="-231.36160714285714"/>

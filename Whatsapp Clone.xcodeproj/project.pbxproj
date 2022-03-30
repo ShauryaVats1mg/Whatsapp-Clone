@@ -132,13 +132,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		D9A8743527DB51E800D95B90 /* Dependencies */ = {
+		D9A8743527DB51E800D95B90 /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
 				D9A8743627DB520C00D95B90 /* Defaults */,
 				D9AE965A27D772BC00451F98 /* Extensions */,
 			);
-			path = Dependencies;
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 		D9A8743627DB520C00D95B90 /* Defaults */ = {
@@ -174,7 +174,7 @@
 				D9AE964B27CCEB1000451F98 /* ChatListing */,
 				D9A8743127DB3CFE00D95B90 /* ChatMessage */,
 				D9AE964C27CCEB1A00451F98 /* Settings */,
-				D9A8743527DB51E800D95B90 /* Dependencies */,
+				D9A8743527DB51E800D95B90 /* Dependency */,
 				D9AE961E27C66B2500451F98 /* AppDelegate.swift */,
 				D9AE962027C66B2500451F98 /* SceneDelegate.swift */,
 				D9AE962427C66B2500451F98 /* Main.storyboard */,
