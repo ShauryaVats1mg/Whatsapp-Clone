@@ -15,6 +15,7 @@ class InputAccessoryView: UIView {
     @IBOutlet weak var textView: UITextView?
     @IBOutlet weak var cameraButton: UIButton?
     @IBOutlet weak var micButton: UIButton?
+    @IBOutlet weak var sendButton: UIButton?
     
     override var intrinsicContentSize: CGSize {
         let size = textView?.sizeThatFits(CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude))
@@ -29,7 +30,10 @@ class InputAccessoryView: UIView {
         addButton?.titleLabel?.text = ""
         cameraButton?.titleLabel?.text = ""
         micButton?.titleLabel?.text = ""
+        sendButton?.titleLabel?.text = ""
         
+        sendButton?.isHidden = true
+        //sendButton?.makeRounded()
         //textView?.makeRounded()
     }
     
@@ -41,7 +45,7 @@ class InputAccessoryView: UIView {
         super.didMoveToWindow()
         if #available(iOS 11.0, *) {
             if let window = self.window {
-                contentView.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
+                self.bottomAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: window.safeAreaLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
             }
         }
     }
@@ -60,6 +64,16 @@ class InputAccessoryView: UIView {
 
 extension InputAccessoryView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
+        if !textView.text.isEmpty {
+            cameraButton?.isHidden = true
+            micButton?.isHidden = true
+            sendButton?.isHidden = false
+        }
+        else {
+            cameraButton?.isHidden = false
+            micButton?.isHidden = false
+            sendButton?.isHidden = true
+        }
         self.invalidateIntrinsicContentSize()
     }
 }

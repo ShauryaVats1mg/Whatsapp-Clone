@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,6 +16,7 @@
                 <outlet property="cameraButton" destination="A6R-9i-H54" id="IHX-ya-zVO"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="AOl-pG-xf3"/>
                 <outlet property="micButton" destination="5hf-Gn-ezv" id="Yi0-eF-PU6"/>
+                <outlet property="sendButton" destination="wx3-CT-RON" id="wGE-Ad-I6H"/>
                 <outlet property="textView" destination="a0P-hb-eg9" id="8Mz-rm-VKb"/>
             </connections>
         </placeholder>
@@ -33,11 +35,8 @@
                     <state key="normal" image="plus" catalog="system"/>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a0P-hb-eg9">
-                    <rect key="frame" x="32" y="52" width="310" height="40"/>
+                    <rect key="frame" x="32" y="52" width="278" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9By-gM-H0m"/>
-                    </constraints>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -51,37 +50,51 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="trimWhiteSpaceWhenEndEditing" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </textView>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6R-9i-H54" userLabel="Camera Button">
-                    <rect key="frame" x="350" y="68" width="24" height="24"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EPv-Z5-GZv">
+                    <rect key="frame" x="318" y="68" width="88" height="24"/>
+                    <subviews>
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6R-9i-H54" userLabel="Camera Button">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="A6R-9i-H54" secondAttribute="height" multiplier="1:1" id="QkY-1j-dDQ"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="camera" catalog="system"/>
+                        </button>
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hf-Gn-ezv" userLabel="Microphone Button">
+                            <rect key="frame" x="32" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="5hf-Gn-ezv" secondAttribute="height" multiplier="1:1" id="CFX-u8-wkF"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="mic" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wx3-CT-RON" userLabel="Send Button">
+                            <rect key="frame" x="64" y="0.0" width="24" height="24"/>
+                            <color key="backgroundColor" name="AccentColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="wx3-CT-RON" secondAttribute="height" multiplier="1:1" id="ec9-oa-SEt"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.right.fill" catalog="system"/>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="A6R-9i-H54" secondAttribute="height" multiplier="1:1" id="HXG-g3-Fyp"/>
+                        <constraint firstAttribute="height" constant="24" id="JgL-AW-4Cy"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="camera" catalog="system"/>
-                </button>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hf-Gn-ezv" userLabel="Microphone Button">
-                    <rect key="frame" x="382" y="68" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="5hf-Gn-ezv" secondAttribute="height" multiplier="1:1" id="7UI-O8-ELq"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="mic" catalog="system"/>
-                </button>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemGray6Color"/>
             <constraints>
-                <constraint firstItem="UDf-ZO-NOD" firstAttribute="height" secondItem="A6R-9i-H54" secondAttribute="height" id="6qc-Vy-3o7"/>
-                <constraint firstItem="5hf-Gn-ezv" firstAttribute="leading" secondItem="A6R-9i-H54" secondAttribute="trailing" constant="8" id="7NT-Se-HHp"/>
                 <constraint firstItem="UDf-ZO-NOD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Acd-VU-P2M"/>
-                <constraint firstItem="a0P-hb-eg9" firstAttribute="bottom" secondItem="A6R-9i-H54" secondAttribute="bottom" id="BPw-pP-S5S"/>
                 <constraint firstItem="a0P-hb-eg9" firstAttribute="leading" secondItem="UDf-ZO-NOD" secondAttribute="trailing" constant="8" id="DkI-h0-q9d"/>
-                <constraint firstItem="A6R-9i-H54" firstAttribute="leading" secondItem="a0P-hb-eg9" secondAttribute="trailing" constant="8" id="EBJ-QA-Epe"/>
-                <constraint firstItem="UDf-ZO-NOD" firstAttribute="height" secondItem="5hf-Gn-ezv" secondAttribute="height" id="JIR-Fu-Lkl"/>
+                <constraint firstItem="EPv-Z5-GZv" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="FJC-Wf-Khc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="a0P-hb-eg9" secondAttribute="bottom" constant="8" id="NYW-BL-xJx"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5hf-Gn-ezv" secondAttribute="trailing" id="PM4-2d-ha4"/>
-                <constraint firstItem="a0P-hb-eg9" firstAttribute="bottom" secondItem="5hf-Gn-ezv" secondAttribute="bottom" id="Vkp-xN-mwx"/>
+                <constraint firstItem="a0P-hb-eg9" firstAttribute="bottom" secondItem="EPv-Z5-GZv" secondAttribute="bottom" id="VZb-bg-bJ0"/>
                 <constraint firstItem="UDf-ZO-NOD" firstAttribute="bottom" secondItem="a0P-hb-eg9" secondAttribute="bottom" id="Vqf-yQ-5W2"/>
+                <constraint firstItem="EPv-Z5-GZv" firstAttribute="leading" secondItem="a0P-hb-eg9" secondAttribute="trailing" constant="8" id="d2r-yO-Egw"/>
                 <constraint firstItem="a0P-hb-eg9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="xf1-nw-5ni"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -89,9 +102,13 @@
         </view>
     </objects>
     <resources>
+        <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="mic" catalog="system" width="108" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
