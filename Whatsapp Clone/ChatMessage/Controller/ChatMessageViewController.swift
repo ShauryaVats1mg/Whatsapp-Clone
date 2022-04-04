@@ -9,13 +9,18 @@ import UIKit
 
 class ChatMessageViewController: UIViewController {
 
-    @IBOutlet weak var sendButton: UIButton?
-    @IBOutlet weak var messageFeild: UITextField?
-    
-    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var tableView: ChatMessageTableView?
     
     private var chatMessages: [Message]
     private var chatListingDetails: ChatListingStructure
+    
+    /*lazy var inputAccessory: InputAccessoryView = {
+        let inputAccessory = InputAccessoryView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        //inputAccessory.autoresizesSubviews = false
+        return inputAccessory
+    }()*/
+    
+    //MARK: Class Initialisers
     
     init?(coder: NSCoder, chatDetails: ChatListingStructure, chatIndex: Int) {
         self.chatListingDetails = chatDetails
@@ -28,6 +33,26 @@ class ChatMessageViewController: UIViewController {
         fatalError("init(coder:) should not have been called. Call init(coder:ChatListingStructure:Int) to initialise this class")
     }
     
+    //MARK: View Controller Overrides
+    
+    /*override var inputAccessoryView: UIView? {
+        get {
+            return inputAccessory
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
+    override var canResignFirstResponder: Bool {
+        get {
+            return true
+        }
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,21 +64,32 @@ class ChatMessageViewController: UIViewController {
         //Initialise the navigation bar
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        //Initialise the bottom bar
-        if let sendButton = sendButton {
-            sendButton.makeRounded()
-        }
-        
-        if let messageFeild = messageFeild {
-            messageFeild.makeRounded()
-        }
-        
         //Initialising the table view
         tableView?.delegate = self
         tableView?.dataSource = self
         
         setupNavigationBar()
+        
+        adjustKeyboard()
+        
+        tableView?.keyboardDismissMode = .interactive
+        
+        tableView?.becomeFirstResponder()
+        
+        tableView?.scrollToBottom()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        //Deinitialise the navigation bar
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Un hide the tab bar
+        tabBarController?.tabBar.isHidden = false
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: Navigation Bar Setup
     
     func setupLeftNavigationBarItems() {
         let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(backButtonPressed))
@@ -98,14 +134,33 @@ class ChatMessageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        //Deinitialise the navigation bar
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        //Un hide the tab bar
-        tabBarController?.tabBar.isHidden = false
+    //MARK: Keyboard Adjustment
+    
+    func adjustKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
+    @objc func showKeyboard(_ notification: Notification) {
+        inputAccessoryView?.frame = CGRect(x: 0, y: 0, width: 0, height: 56)
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            tableView?.contentInset.bottom = keyboardHeight
+            if keyboardHeight > 100 {
+                tableView?.scrollToBottom()
+            }
+        }
+    }
+    
+    @objc func hideKeyboard(_ notification: Notification) {
+        inputAccessoryView?.frame = CGRect(x: 0, y: 0, width: 0, height: 100)
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            tableView?.contentInset.bottom = keyboardHeight
+        }
+    }
 }
 
 // MARK: - Table View Extension
@@ -117,11 +172,11 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chatMessages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let message = chatMessages[indexPath.section]
+        let message = chatMessages[indexPath.row]
         if(message.sender == .current) {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.sendCellIdentifier, for: indexPath) as! MessageSendTableViewCell
             cell.message.text = message.sentMessage
@@ -136,9 +191,5 @@ extension ChatMessageViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return chatMessages.count
     }
 }
